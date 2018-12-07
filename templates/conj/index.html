@@ -1,0 +1,76 @@
+{% extends 'quizz/base.html' %}
+{% load dictkey %}
+{% block title %}{{ title }}{% endblock %}
+{% block contains %}
+		<section class="container">
+
+			<section class="row" style="margin-top: 100px;">
+
+				<div class="col-md-12">
+
+					<div class="panel panel-info">
+
+						<div class="panel-heading">
+							{% block text %}Conjugueur Nufi by Pythonbrad{% endblock %}
+						</div>
+
+						<div class="panel-body btn-group btn-group-justified">
+
+							<h3 style="color: red;">
+								{% block help %}
+									Attention! L'application est en plein chantier<br/>
+									Certaines regles de conjugaison ne sont pas encore prises en compte, et le seront d'ici peu
+								{% endblock %}
+							</h3>
+
+							<center>
+								{% block form %}
+									<form class="form" method="GET">
+										<div class="form-group">
+											<h3>Verbe:</h3>
+											<input class="form-control" type="text" name="verb"><br/>
+											<button type="submit" class="btn btn-warning">Validez</button>
+										</div>
+									</form>
+								{% endblock %}
+								<section class="row">
+									<h3>{{ title }}</h3>
+									{% for i in conjs %}
+										<div class="col-md-6">
+											<div class="panel panel-info">
+												<div class="panel-heading">
+													{{ i }}
+												</div>
+													<div class="panel-body">
+														<table class="table table-stripped">
+															<tbody>
+																{% for ii in conjs|dictkey:i %}
+																	<tr>
+																		{% for iii in ii %}
+																			<td>{{ iii }}</td>
+																		{% endfor %}
+																	</tr>
+																{% endfor %}
+															</tbody>
+														</table>
+													</div>
+											</div>
+										</div>
+									{% endfor %}
+								</section>
+								<p><font color="blue">Cette conjugaison est bas&eacute;e sur l'&eacute;tude d&eacute;taill&eacute;e de la conjugaison en langue fe'efe'e, tir&eacute;e du livre</font> <font color="green">"La grammaire des langues bamil&eacute;k&eacute;s: cas du n&ugrave;fi"</font></p>
+								<p><a href="http://bit.ly/grammaire_bamileke_nufi" target="_blank">http://bit.ly/grammaire_bamileke_nufi</a></p>
+						</center>
+						</div>
+
+						{% block comments %}
+						{% endblock %}
+
+					</div>
+
+				</div>
+
+			</section>
+
+		</section>
+{% endblock %}
