@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class ConjConfig(AppConfig):
-    name = 'conj'
+class ConjNufiConfig(AppConfig):
+    name = 'conj_nufi'
