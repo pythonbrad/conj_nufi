@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'quizz/base.html' %}
 {% load dictkey %}
 {% block title %}{{ title }}{% endblock %}
-{% block content %}
+{% block contains %}
 		<section class="container">
 
 			<section class="row" style="margin-top: 100px;">
@@ -14,7 +14,7 @@
 							{% block text %}Conjugueur Nufi by Pythonbrad{% endblock %}
 						</div>
 
-						<div class="panel-body">
+						<div class="panel-body btn-group btn-group-justified">
 
 							<h3 style="color: red;">
 								{% block help %}
@@ -33,13 +33,13 @@
 										</div>
 									</form>
 								{% endblock %}
-								<section>
+								<section class="row">
 									<h3>{{ title }}</h3>
 									{% for i in conjs %}
 										<div class="col-md-6">
 											<div class="panel panel-info">
 												<div class="panel-heading">
-													<b>{{ i }}</b>
+													{{ i }}
 												</div>
 													<div class="panel-body">
 														<table class="table table-stripped">
